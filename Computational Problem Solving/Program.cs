@@ -80,6 +80,8 @@ namespace Computational_Problem_Solving
             string keyword = "hhllo";
             Console.WriteLine(DictSearch(userDict, keyword));
 
+            Console.WriteLine();
+
             Console.WriteLine("Question 9");
             SolvePuzzle();
 
