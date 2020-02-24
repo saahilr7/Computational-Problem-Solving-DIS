@@ -24,10 +24,10 @@ namespace Computational_Problem_Solving
             //}
             //DisplayArray(r);
 
-            //Console.WriteLine("Question 3");
-            //int[] l2 = new int[] { 40, 40 };
-            //int sum = MinimumSum(l2);
-            //Console.WriteLine(sum);
+            Console.WriteLine("Question 3");
+            int[] l2 = new int[] { 40, 40 };
+            int sum = MinimumSum(l2);
+            Console.WriteLine(sum);
 
             //Console.WriteLine("Question 4");
             //string s2 = "Dell";
@@ -38,15 +38,15 @@ namespace Computational_Problem_Solving
             int[] nums1 = { 3, 6, 2 };
             int[] nums2 = { 6, 3, 6, 7, 3 };
             int[] intersect1 = Intersect1(nums1, nums2);
-            //Console.WriteLine("Part 1- Intersection of two arrays is: ");
-            //DisplayArray(intersect1);
-            //Console.WriteLine("\n");
+            Console.WriteLine("Part 1- Intersection of two arrays is: ");
+            DisplayArray(intersect1);
+            Console.WriteLine("\n");
 
-            //Console.WriteLine("Question 5-Part 2");
-            //int[] intersect2 = Intersect2(nums1, nums2);
-            //Console.WriteLine("Part 2- Intersection of two arrays is: ");
-            //DisplayArray(intersect2);
-            //Console.WriteLine("\n");
+            Console.WriteLine("Question 5-Part 2");
+            int[] intersect2 = Intersect2(nums1, nums2);
+            Console.WriteLine("Part 2- Intersection of two arrays is: ");
+            DisplayArray(intersect2);
+            Console.WriteLine("\n");
 
             Console.WriteLine("Question 7");
             int rodLength = 15;
@@ -173,7 +173,7 @@ namespace Computational_Problem_Solving
                 int m = nums1.Length;
                 int n = nums2.Length;
                 int i = 0, j = 0;
-                ArrayList myAL = new ArrayList();
+                ArrayList myAL = new ArrayList();// Creates and initializes a new ArrayList.
 
 
                 while (i < m && j < n)
@@ -187,10 +187,13 @@ namespace Computational_Problem_Solving
 
                         myAL.Add(nums2[j++]);
                         i++;
-                    }
+                    }  // Stored the same elements from both the array in myAL
 
                 }
+                // converting myAL arraylist to array
+
                 object[] obj1 = myAL.ToArray();
+                // created a new array a 
                 int[] a = new int[obj1.Length];
                 int x = 0;
                 foreach (int st in obj1)
@@ -216,7 +219,7 @@ namespace Computational_Problem_Solving
 
                 foreach (var num in nums1)
                 {
-                    if (!Countnum.ContainsKey(num))
+                    if (!Countnum.ContainsKey(num)) // check if the number exist in the dictionary and add into dictionary if not present
                         Countnum[num] = 0;
                     Countnum[num]++;
                 }
@@ -225,9 +228,9 @@ namespace Computational_Problem_Solving
 
                 foreach (var num in nums2)
                 {
-                    if (Countnum.ContainsKey(num) && Countnum[num] > 0)
+                    if (Countnum.ContainsKey(num) && Countnum[num] > 0) //check if number in num2 are present in the dictionary 
                     {
-                        Intersection.Add(num);
+                        Intersection.Add(num);// if number is present in num2 add to a list  
 
                         Countnum[num]--;
                     }
@@ -297,6 +300,7 @@ namespace Computational_Problem_Solving
         {
             try
             {
+                // As per the rodLength returning the values of PriceProduct
                 if (rodLength == 2)
                     return 1;
                 else if (rodLength == 3)
