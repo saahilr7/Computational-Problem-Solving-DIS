@@ -89,7 +89,7 @@ namespace Computational_Problem_Solving
 
 
 
-        public static int firstPos(int[] l1, int t)
+        public static int firstPos(int[] l1, int t)     //function to narrow down the search to left half of the array
         {
             int start = 0;
             int last = l1.Length - 1;
@@ -101,7 +101,7 @@ namespace Computational_Problem_Solving
                 int mid = start + (last - start) / 2;
                 if (l1[mid] == t)
                 {
-                    index = mid;                     //if middle element of l1 is equal to target, store index of middle element in index
+                    index = mid;                     //if middle element of l1 is equal to target, store index of middle element in index and search only the left part of the array from this point. (Narrowing down the search to left half of the array)
                     last = mid - 1;
                 }
                 else if (l1[mid] > t)               //if middle element is greater than target, keep checking the left part of the array l1
@@ -112,7 +112,7 @@ namespace Computational_Problem_Solving
             return index;
         }
 
-        public static int lastPos(int[] l1, int t)
+        public static int lastPos(int[] l1, int t)      //narrowing down the search to right half of the array
         {
             int start = 0;
             int last = l1.Length - 1;
@@ -121,13 +121,13 @@ namespace Computational_Problem_Solving
 
             while (start <= last)
             {
-                int mid = start + (last - start) / 2;
-                if (l1[mid] == t)
+                int mid = start + (last - start) / 2;           //if middle element of l1 is equal to target, store index of middle element in index
+                if (l1[mid] == t)                               //narrow down the search to right half of the array
                 {
                     index = mid;
                     start = mid + 1;
                 }
-                else if (l1[mid] > t)
+                else if (l1[mid] > t)   
                     last = mid - 1;
                 else
                     start = mid + 1;
@@ -250,39 +250,39 @@ namespace Computational_Problem_Solving
             if (string.IsNullOrEmpty(s))
                 return s;
 
-            Dictionary<char, int> cache = new Dictionary<char, int>();
-            Dictionary<int, List<char>> rcache = new Dictionary<int, List<char>>();
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            Dictionary<int, List<char>> dictr = new Dictionary<int, List<char>>();
 
             //calculate frequencies by char
             foreach (var c in s)
             {
-                if (!cache.ContainsKey(c))
+                if (!dict.ContainsKey(c))
                 {
-                    cache.Add(c, 0);                        //add letter to cache if it previously didn't exist. [Key = letter, Value = Frequency]
+                    dict.Add(c, 0);                        //add letter to cache if it previously didn't exist. [Key = letter, Value = Frequency]
                 }
 
-                cache[c]++;                                 //Increase the count of the letter if it is repeated
+                dict[c]++;                                 //Increase the count of the letter if it is repeated
             }
 
             //reverse cache:chars by frequency
-            foreach (var k in cache.Keys)
+            foreach (var k in dict.Keys)
             {
-                if (!rcache.ContainsKey(cache[k]))
-                    rcache.Add(cache[k], new List<char>());
+                if (!dictr.ContainsKey(dict[k]))
+                    dictr.Add(dict[k], new List<char>());
 
-                rcache[cache[k]].Add(k);
+                dictr[dict[k]].Add(k);
             }
 
 
             StringBuilder sb = new StringBuilder();
-            var l = rcache.Keys.ToList();
-            l.Sort();
+            var l = dictr.Keys.ToList();
+            l.Sort();                                       //Sorting and Reversing the list so that the list contains frequency of letters in descending order
             l.Reverse();
 
             //Build a new string by appending to the string by the frequency of letters stored in List "l"
             foreach (var f in l)
             {
-                foreach (var c in rcache[f])
+                foreach (var c in dictr[f])
                     for (int i = 0; i < f; i++)
                         sb.Append(c);
             }
