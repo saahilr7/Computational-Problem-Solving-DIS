@@ -24,6 +24,13 @@ namespace Computational_Problem_Solving
             //}
             //DisplayArray(r);
 
+            //Console.WriteLine("Question 2");
+            //string s1 = "University of South Florida";
+            //string rs = StringReverse(s1);
+            // Console.WriteLine(rs);
+
+
+
             //Console.WriteLine("Question 3");
             //int[] l2 = new int[] { 40, 40 };
             //int sum = MinimumSum(l2);
@@ -47,6 +54,11 @@ namespace Computational_Problem_Solving
             //Console.WriteLine("Part 2- Intersection of two arrays is: ");
             //DisplayArray(intersect2);
             //Console.WriteLine("\n");
+
+            //Console.WriteLine("Question 6");
+            //char[] arr = new char[] { 'a', 'g', 'c', 'a' };
+            //int k = 3;
+            //Console.WriteLine(ContainsDuplicate(arr, k));
 
             Console.WriteLine("Question 7");
             int rodLength = 15;
@@ -134,7 +146,53 @@ namespace Computational_Problem_Solving
             }
             return index;
         }
+        public static string StringReverse(string s1)
+        {
+            try
+            {
+                // Here I have created an array list with the split up of words from our main string.
+                //As we are not allowed to use the predifined split function, i have used a for loop to split and add words
+                //to the list.
+                ArrayList arrayList = new ArrayList();
+                string Temp = "";
+                for (int i = 0; i < s1.Length; i++)
+                {
 
+                    if (s1[i] != ' ')
+                    {
+                        Temp = Temp + s1[i];
+                        if (i == (s1.Length - 1))
+                            arrayList.Add(Temp);
+                        continue;
+
+                    }
+                    arrayList.Add(Temp);
+                    Temp = "";
+                }
+                string reverse = ""; // Here i have taken an empty string to store the characters.
+                foreach (string s in arrayList)
+                {
+                    char[] x = s.ToCharArray(); // I have taken each word and converted it into characters.
+                    for (int i = x.Length - 1; i > -1; i--)
+                    {
+                        reverse += s[i]; // Each character is revesred and stored in the string 'reverse.'
+
+
+                    }
+                    reverse += " ";
+
+                }
+
+                Console.WriteLine(reverse); // The final output is printed.
+
+            }
+
+            catch
+            {
+                throw;
+            }
+            return null;
+        }
 
 
         public static int MinimumSum(int[] l2)
@@ -290,6 +348,30 @@ namespace Computational_Problem_Solving
 
             return sb.ToString();
 
+        }
+        public static bool ContainsDuplicate(char[] arr, int k)
+        {
+            // We have created a dictionary for storing the characters and checking for duplicates.
+            var d = new Dictionary<char, int>(); //The key type here is char and the value is the index of the char element in the array. 
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (d.ContainsKey(arr[i]))
+                {
+                    int diff = 0;
+                    diff = i - d[arr[i]]; // Here i have taken the difference of the index positions of the char elements. 
+                    if (diff < 0)
+                        diff = diff * (-1); // This is a corner case, if the diff is negative, it will become positive with this LOC
+                    if (diff == k)
+                        return true;
+                }
+                else
+                {
+                    d[arr[i]] = i; // In this statement, we are basically adding elements to the dictionary. As we add the elements, if we get a duplicate,
+                                   // it will go through the if loop above.
+                }
+            }
+            return false;
         }
 
         //Question 7
