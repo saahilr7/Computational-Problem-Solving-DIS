@@ -11,65 +11,66 @@ namespace Computational_Problem_Solving
     {
         static void Main(string[] args)
         {
-            // new addition
-            //Console.WriteLine("Question 1");
-            //int[] l1 = new int[] { 5, 6, 6, 9, 9, 12 };
-            //int target = 9;
-            //int[] r = TargetRange(l1, target);
+
+            Console.WriteLine("Question 1");
+            int[] l1 = new int[] { 5, 6, 6, 9, 9, 12 };
+            int target = 9;
+            int[] r = TargetRange(l1, target);
+
             // Write your code to print range r here
             //foreach (int n in r)
             //{
-            //    Console.Write("[{0}]",string.Join(", ",r));
+            //    Console.Write("[{0}]", string.Join(", ", r));
             //    //Console.Write(n);
             //}
-            //DisplayArray(r);
+            DisplayArray(r);
+            Console.WriteLine();
+            Console.WriteLine("Question 2");
+            string s1 = "University of South Florida";
+            string rs = StringReverse(s1);
+            Console.WriteLine(rs);
 
-            //Console.WriteLine("Question 2");
-            //string s1 = "University of South Florida";
-            //string rs = StringReverse(s1);
-            // Console.WriteLine(rs);
 
 
+            Console.WriteLine("Question 3");
+            int[] l2 = new int[] { 40, 40 };
+            int sum = MinimumSum(l2);
+            Console.WriteLine(sum);
 
-            //Console.WriteLine("Question 3");
-            //int[] l2 = new int[] { 40, 40 };
-            //int sum = MinimumSum(l2);
-            //Console.WriteLine(sum);
-
-            //Console.WriteLine("Question 4");
-            //string s2 = "Dell";
-            //string sortedString = FreqSort(s2);
-            //Console.WriteLine(sortedString);
+            Console.WriteLine("Question 4");
+            string s2 = "Dell";
+            string sortedString = FreqSort(s2);
+            Console.WriteLine(sortedString);
 
             Console.WriteLine("Question 5-Part 1");
             int[] nums1 = { 3, 6, 2 };
             int[] nums2 = { 6, 3, 6, 7, 3 };
             int[] intersect1 = Intersect1(nums1, nums2);
-            //Console.WriteLine("Part 1- Intersection of two arrays is: ");
-            //DisplayArray(intersect1);
-            //Console.WriteLine("\n");
+            Console.WriteLine("Part 1- Intersection of two arrays is: ");
+            DisplayArray(intersect1);
+            Console.WriteLine("\n");
 
-            //Console.WriteLine("Question 5-Part 2");
-            //int[] intersect2 = Intersect2(nums1, nums2);
-            //Console.WriteLine("Part 2- Intersection of two arrays is: ");
-            //DisplayArray(intersect2);
-            //Console.WriteLine("\n");
+            Console.WriteLine("Question 5-Part 2");
+            int[] intersect2 = Intersect2(nums1, nums2);
+            Console.WriteLine("Part 2- Intersection of two arrays is: ");
+            DisplayArray(intersect2);
+            Console.WriteLine("\n");
 
-            //Console.WriteLine("Question 6");
-            //char[] arr = new char[] { 'a', 'g', 'c', 'a' };
-            //int k = 3;
-            //Console.WriteLine(ContainsDuplicate(arr, k));
+            Console.WriteLine("Question 6");
+            char[] arr = new char[] { 'a', 'g', 'c', 'a' };
+            int k = 3;
+            Console.WriteLine(ContainsDuplicate(arr, k));
 
             Console.WriteLine("Question 7");
             int rodLength = 15;
             int priceProduct = GoldRod(rodLength);
             Console.WriteLine(priceProduct);
 
-            //Console.WriteLine("Question 8");
-            //string[] userDict = new string[] { "rocky", "usf", "hello", "apple" };
-            //string keyword = "hhllo";
+            Console.WriteLine("Question 8");
+            string[] userDict = new string[] { "rocky", "usf", "hello", "apple" };
+            string keyword = "hhllo";
 
-            //Console.WriteLine(DictSearch(userDict, keyword));
+            Console.WriteLine(DictSearch(userDict, keyword));
         }
 
 
@@ -424,7 +425,7 @@ namespace Computational_Problem_Solving
                     if (userDict[i][j] == keyword[j])               //comparing each letter of every word in the array to each letter of keyword
                     {
                         same = same + 1;
-                        Console.WriteLine(same);
+                       // Console.WriteLine(same);
                     }
 
                 }
