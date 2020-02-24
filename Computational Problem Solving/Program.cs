@@ -69,6 +69,9 @@ namespace Computational_Problem_Solving
             //string keyword = "hhllo";
 
             //Console.WriteLine(DictSearch(userDict, keyword));
+
+            Console.WriteLine("Question 8"); 
+            SolvePuzzle();
         }
 
 
@@ -440,6 +443,31 @@ namespace Computational_Problem_Solving
             }
 
             return false;
+
+        }
+        public static void SolvePuzzle()
+        {
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            Console.WriteLine("Enter the string 1");
+            String inp_1 = Console.ReadLine();
+            Console.WriteLine("Enter the String 2");
+            String inp_2 = Console.ReadLine();
+            Console.WriteLine("Enter the Result String 3");
+            String output = Console.ReadLine();
+            String fin = String.Concat(inp_1, inp_2, output);
+
+            //Here i have first taken the inputs and outputs from the user. I have stored them in 3 string variables,
+
+            var distinct1 = new HashSet<char>(fin);
+            List<char> unichar = distinct1.ToList();
+            Char[] str1 = inp_1.ToCharArray();
+            Char[] str2 = inp_2.ToCharArray();
+            Char[] str3 = output.ToCharArray();
+
+            // In the above LOC i have taken a dictionary. In this dictionary i will store the characters and assign a number to them. For the 
+            // duplicates, i will just ignore. The strings have been changed to char arrays.
+            //The sum of the numbers of the input words are taken in sum and the sum of the output is stored in another variable.
+            // The difference between the sums will be distributed amongst the unique characters of the output string.
 
         }
 
