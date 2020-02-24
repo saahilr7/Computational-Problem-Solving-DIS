@@ -11,6 +11,7 @@ namespace Computational_Problem_Solving
     {
         static void Main(string[] args)
         {
+            // new addition
             //Console.WriteLine("Question 1");
             //int[] l1 = new int[] { 5, 6, 6, 9, 9, 12 };
             //int target = 9;
@@ -140,23 +141,16 @@ namespace Computational_Problem_Solving
         {
             try
             {
-                //Write your code here;
-                int res = l2[0];
-                int n = l2.Length;
-                for (int i = 1; i < n; i++)
-                {
-                    if (l2[i] == l2[i - 1]) // comparing current element with previous
-                    {
 
-                        int j = i;
-                        while (j < n && l2[j] <= l2[j - 1])
-                        {
-                            l2[j] = l2[j] + 1;
-                            j++;
-                        } // removing same number in array and adding 1 to that.
+                int res = 0;
+                for (int i = 0; i <= l2.Length - 1; i++)
+                {
+                    res = res + l2[i]; // Calculating sum of elements in array 
+                    if (i != l2.Length - 1 && l2[i + 1] == l2[i])
+                    {
+                        l2[i + 1] = l2[i + 1] + 1;
                     }
-                    res = res + l2[i]; // producing sum
-                }
+                } // Comparing each element in array with previous one and adding one in it (l2[i+1]) if found similar
                 return res;
 
             }
