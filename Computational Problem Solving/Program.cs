@@ -17,13 +17,14 @@ namespace Computational_Problem_Solving
             int target = 9;
             int[] r = TargetRange(l1, target);
 
+            Console.WriteLine("[" + r[0] + "," + r[1] + "]");
             // Write your code to print range r here
             //foreach (int n in r)
             //{
             //    Console.Write("[{0}]", string.Join(", ", r));
             //    //Console.Write(n);
             //}
-            DisplayArray(r);
+            //DisplayArray(r);
             Console.WriteLine();
             Console.WriteLine("Question 2");
             string s1 = "University of South Florida";
@@ -37,10 +38,14 @@ namespace Computational_Problem_Solving
             int sum = MinimumSum(l2);
             Console.WriteLine(sum);
 
+            Console.WriteLine();
+
             Console.WriteLine("Question 4");
             string s2 = "Dell";
             string sortedString = FreqSort(s2);
             Console.WriteLine(sortedString);
+
+            Console.WriteLine();
 
             Console.WriteLine("Question 5-Part 1");
             int[] nums1 = { 3, 6, 2 };
@@ -61,10 +66,14 @@ namespace Computational_Problem_Solving
             int k = 3;
             Console.WriteLine(ContainsDuplicate(arr, k));
 
+            Console.WriteLine();
+
             Console.WriteLine("Question 7");
             int rodLength = 15;
             int priceProduct = GoldRod(rodLength);
             Console.WriteLine(priceProduct);
+
+            Console.WriteLine();
 
             Console.WriteLine("Question 8");
             string[] userDict = new string[] { "rocky", "usf", "hello", "apple" };
@@ -232,7 +241,7 @@ namespace Computational_Problem_Solving
                 int m = nums1.Length;
                 int n = nums2.Length;
                 int i = 0, j = 0;
-                ArrayList myAL = new ArrayList();
+                ArrayList myAL = new ArrayList();// Creates and initializes a new ArrayList.
 
 
                 while (i < m && j < n)
@@ -246,10 +255,13 @@ namespace Computational_Problem_Solving
 
                         myAL.Add(nums2[j++]);
                         i++;
-                    }
+                    }  // Stored the same elements from both the array in myAL
 
                 }
+                // converting myAL arraylist to array
+
                 object[] obj1 = myAL.ToArray();
+                // created a new array a 
                 int[] a = new int[obj1.Length];
                 int x = 0;
                 foreach (int st in obj1)
@@ -275,7 +287,7 @@ namespace Computational_Problem_Solving
 
                 foreach (var num in nums1)
                 {
-                    if (!Countnum.ContainsKey(num))
+                    if (!Countnum.ContainsKey(num)) // check if the number exist in the dictionary and add into dictionary if not present
                         Countnum[num] = 0;
                     Countnum[num]++;
                 }
@@ -284,9 +296,9 @@ namespace Computational_Problem_Solving
 
                 foreach (var num in nums2)
                 {
-                    if (Countnum.ContainsKey(num) && Countnum[num] > 0)
+                    if (Countnum.ContainsKey(num) && Countnum[num] > 0) //check if number in num2 are present in the dictionary 
                     {
-                        Intersection.Add(num);
+                        Intersection.Add(num);// if number is present in num2 add to a list  
 
                         Countnum[num]--;
                     }
@@ -380,6 +392,7 @@ namespace Computational_Problem_Solving
         {
             try
             {
+                // As per the rodLength returning the values of PriceProduct
                 if (rodLength == 2)
                     return 1;
                 else if (rodLength == 3)
