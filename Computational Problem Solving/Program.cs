@@ -23,6 +23,13 @@ namespace Computational_Problem_Solving
             //}
             //DisplayArray(r);
 
+            //Console.WriteLine("Question 2");
+            //string s1 = "University of South Florida";
+            //string rs = StringReverse(s1);
+            // Console.WriteLine(rs);
+
+
+
             //Console.WriteLine("Question 3");
             //int[] l2 = new int[] { 40, 40 };
             //int sum = MinimumSum(l2);
@@ -46,6 +53,11 @@ namespace Computational_Problem_Solving
             //Console.WriteLine("Part 2- Intersection of two arrays is: ");
             //DisplayArray(intersect2);
             //Console.WriteLine("\n");
+
+            //Console.WriteLine("Question 6");
+            //char[] arr = new char[] { 'a', 'g', 'c', 'a' };
+            //int k = 3;
+            //Console.WriteLine(ContainsDuplicate(arr, k));
 
             Console.WriteLine("Question 7");
             int rodLength = 15;
